@@ -1,0 +1,35 @@
+  <div class="row">
+    <div class="col-md">
+      <h4 class="requestname">
+        <%= "Product details for #{@request.name}" %>
+      </h4>
+    </div>
+  </div>
+  <table class="table">
+    <thead class="thead-light">
+      <tr class="requests_header">
+        <th>Class</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="request">
+        <td class="requestclass">
+          <%= @request.compsciclass %>
+        </td>
+        <td class="productqtype">
+          <%= @request.qtype %>
+        </td>
+        <td class="productdescription">
+          <%= @request.desc %>
+        </td>
+        <td class="productemail">
+          <%= @request.email %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br/>
+  <%= link_to("Back to request list", requests_path, :class => "btn btn-primary") %>
