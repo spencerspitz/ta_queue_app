@@ -1,0 +1,52 @@
+ <div class="row">
+    <div class="col-md">
+      <h3>Create new request</h3>
+    </div>
+ </div>
+ <%= form_with model: @request, local: true, :class => "form-group" do |r| %>
+    <div class="row">
+      <div class="col-md-3">
+        <%= r.label :name %>
+      </div>
+      <div class="col-md-4">
+        <%= r.text_field :name %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <%= r.label :email %>
+      </div>
+      <div class="col-md-6">
+        <%= r.text_area :email %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <%= r.label :desc %>
+      </div>
+      <div class="col-md-2">
+        <%= r.text_area :desc %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <%= r.label :compsciclass %>
+      </div>
+      <div class="col-md-2">
+        <%= r.select :compsciclass, ["COSC 101", "COSC 102"]%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <%= r.label :qtype %>
+      </div>
+      <div class="col-md-2">
+        <%= r.select :qtype, ['Homework', 'Lab', 'General']%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+        <%= r.submit "Create new request" %>
+      </div>
+    </div>
+  <% end %>
