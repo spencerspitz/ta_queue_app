@@ -6,10 +6,10 @@
  <%= form_with model: @request, local: true, :class => "form-group" do |r| %>
     <div class="row">
       <div class="col-md-3">
-        <%= r.label :name %>
+        <%= r.label "Name" %>
       </div>
       <div class="col-md-4">
-        <%= r.text_field :name %>
+        <%= r.text_field :name, required: true %>
       </div>
     </div>
     <div class="row">
@@ -17,31 +17,31 @@
         <%= r.label :email %>
       </div>
       <div class="col-md-6">
-        <%= r.text_area :email %>
+        <%= r.email_field :email, required: true, placeholder: "Email" %>
       </div>
     </div>
     <div class="row">
       <div class="col-md-3">
-        <%= r.label :desc %>
+        <%= r.label "Description" %>
       </div>
       <div class="col-md-2">
-        <%= r.text_area :desc %>
+        <%= r.text_area :desc, required: true, placeholder: "Short description of your problem" %>
       </div>
     </div>
     <div class="row">
       <div class="col-md-3">
-        <%= r.label :compsciclass %>
+        <%= r.label "COSC Class" %>
       </div>
       <div class="col-md-2">
-        <%= r.select :compsciclass, ["COSC 101", "COSC 102"]%>
+        <%= r.select :compsciclass, ["COSC 101", "COSC 102"] %>
       </div>
     </div>
     <div class="row">
       <div class="col-md-3">
-        <%= r.label :qtype %>
+        <%= r.label "Question type" %>
       </div>
       <div class="col-md-2">
-        <%= r.select :qtype, ['Homework', 'Lab', 'General']%>
+        <%= r.select :qtype, ["Homework", "Lab", "General"] %>
       </div>
     </div>
     <div class="row">
@@ -50,3 +50,8 @@
       </div>
     </div>
   <% end %>
+   <div class="row">
+      <div class="col-md">
+        <%= link_to "Back", requests_path, :class => "btn btn-primary" %>
+      </div>
+    </div>
