@@ -1,5 +1,6 @@
 class StacksController < ApplicationController
     def index
-        @stack = Stack.order("class")
+        id = params[:id]
+        @stacks = Stack.order(id)
     end
 end

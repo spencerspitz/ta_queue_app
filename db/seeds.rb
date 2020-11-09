@@ -10,3 +10,7 @@ Request.delete_all
 rlist = []
 
 rlist << Request.create!(name: "Jared Rosen", email: "jfrosen@colgate.edu", time_submitted: Time.now, desc: "What is a migration?", compsciclass: "COSC102", qtype: "Lab")
+
+slist = []
+
+slist << Stack.create!(user: "Cole", topic: "Recursion", coscclass: "102", comment: "Help!!!!!")
