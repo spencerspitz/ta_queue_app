@@ -3,7 +3,7 @@ class CreateStacks < ActiveRecord::Migration[6.0]
     create_table :stacks do |t|
       t.string :user
       t.string :topic
-      t.string :class
+      t.string :coscclass
       t.text :comment
       
 
