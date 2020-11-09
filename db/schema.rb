@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_27_234829) do
+ActiveRecord::Schema.define(version: 2020_11_09_144644) do
 
   create_table "requests", force: :cascade do |t|
     t.string "name"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 2020_10_27_234829) do
     t.string "desc"
     t.string "compsciclass"
     t.string "qtype"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "stacks", force: :cascade do |t|
+    t.string "user"
+    t.string "topic"
+    t.string "class"
+    t.text "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
