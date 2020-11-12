@@ -14,3 +14,5 @@ rlist << Request.create!(name: "Jared Rosen", email: "jfrosen@colgate.edu", time
 slist = []
 
 slist << Stack.create!(user: "Cole", topic: "Recursion", coscclass: "102", comment: "Help!!!!!")
+
+User.create!(:email => "amendelson@colgate.edu", :admin => true)

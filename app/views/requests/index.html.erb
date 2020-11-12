@@ -3,6 +3,7 @@
   </head>
   
   <body>
+    <%= link_to "Sign In with Google", user_google_oauth2_omniauth_authorize_path, :class => "btn btn-primary btn-lg", :method => :post%>
     <div class="allRequests">
       <table class="table table-striped table-hover">
         <thead class="thead-dark">
