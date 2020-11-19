@@ -1,11 +1,8 @@
   <head>
+    <h1>TA Tool</h1>
+    <hr></hr>
   </head>
   <body>
-    <% if !user_signed_in? %>
-      <div class="btn-primary" id="googleLogoBtn">
-        <%= link_to image_tag("/images/googleLogo.png", :id => "googleLogo"), user_google_oauth2_omniauth_authorize_path, :method => :post %>
-      </div>
-    <% end %>
     <div class="allRequests">
       <table class="table table-striped table-hover">
         <thead class="thead-dark">
@@ -40,16 +37,8 @@
     </div>
 
  
-  
-    <div class="row">
-      <div class="col-md">
-        <%= link_to "Create new request", new_request_path, :class => "btn btn-primary" %>
-      </div>
-    </div>
-    
-    
     <div>
+      <%= link_to "Create new request", new_request_path, :class => "btn btn-primary" %>
       <%= link_to "Quick Questions", stacks_path, :class => "btn btn-primary" %>
-    </div>
-    
+    </div>  
   </body>

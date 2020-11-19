@@ -11,13 +11,22 @@
   </head>
 
   <body>
-    <h1 id="header">TA Tool</h1>
-    <hr></hr>
-    <% if user_signed_in? %>
-      <%= "Hi, #{current_user.email}" %>
-    <% end %>
+    <div id="header">
+      <image id="headerImg" src="/images/colgateLogo.png"></image>
+      <div id="auth">
+        <% if !user_signed_in? %>
+          <span>Sign In with Google:</span>
+          <div class="btn-primary" id="googleLogoBtn">
+            <%= link_to image_tag("/images/googleLogo.png", :id => "googleLogo"), user_google_oauth2_omniauth_authorize_path, :method => :post %>
+          </div>
+        <% else %>
+        <!--User signed in-->
+          <%= "Hi, #{current_user.email}" %>
+          <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => "btn btn light" %>
+        <% end %>
+      </div>
+    </div>
     
-    <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => "btn btn light" %>
     <%= yield %>
   </body>
 </html>
