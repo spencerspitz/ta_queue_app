@@ -1,9 +1,7 @@
-  <head>
-    <h1>TA Tool</h1>
-  </head>
-  
   <body>
-    <%= link_to "Sign In with Google", user_google_oauth2_omniauth_authorize_path, :class => "btn btn-primary btn-lg", :method => :post%>
+    <% if !user_signed_in? %>
+      <%= link_to "Sign In with Google", user_google_oauth2_omniauth_authorize_path, :class => "btn btn-primary btn-lg", :method => :post%>
+    <% end %>
     <div class="allRequests">
       <table class="table table-striped table-hover">
         <thead class="thead-dark">
@@ -27,7 +25,9 @@
                 <%= r.qtype %>
               </td>
               <td class="requesttime">
-                <%= link_to "Show View", request_path(r) %> 
+                <% if user_signed_in? && current_user.tutor %>
+                  <%= link_to "Help Student", request_path(r), :class => "btn btn-primary"%> 
+                <% end %>
               </td>
             </tr>
           <% end %>

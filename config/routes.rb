@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   root "requests#index"
   resources :requests, :stacks
   
-  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 end
