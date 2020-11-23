@@ -17,5 +17,4 @@ slist = []
 
 slist << Stack.create!(user: "Cole", topic: "Recursion", coscclass: "102", comment: "Help!!!!!")
 
-User.create!(:email => "amendelson@colgate.edu", :admin => true, :tutor => true)
 User.create!(:email => "jfrosen@colgate.edu", :tutor => true)
