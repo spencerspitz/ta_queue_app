@@ -1,0 +1,39 @@
+<head>
+    <h1>Quick Questions</h1>
+</head>
+
+<div>
+    <h2>Create New Question</h2>
+</div>
+
+<div>
+    <%= form_with model: @stack, local: true, :class => "form-group" do |f| %>
+        <div>
+            <%= f.label "Name" %>
+            <%= f.text_field :user, required: true %>
+        </div>
+        
+        <div>
+            <%= f.label :topic %>
+            <%= f.text_field :topic, required: true %>
+        </div>
+        
+        <div>
+            <%= f.label "COSC Class" %>
+            <%= f.select :coscclass, ["COSC 101", "COSC 102"] %>
+        </div>
+        
+        <div>
+            <%= f.label "Question" %>
+            <%= f.text_field :comment %>
+        </div>
+        
+        <div>
+            <%= f.submit "Post Question" %>
+        </div>
+    <%end%>
+</div>
+
+<div>
+    <%= link_to "Back", stacks_path, :class => "btn btn-primary" %>
+</div>

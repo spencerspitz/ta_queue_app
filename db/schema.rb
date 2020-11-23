@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2020_11_11_164252) do
   create_table "stacks", force: :cascade do |t|
     t.string "user"
     t.string "topic"
-    t.string "coscclass"
+    t.string "class"
     t.text "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
