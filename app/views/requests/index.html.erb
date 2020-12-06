@@ -1,44 +1,68 @@
   <head>
-    <h1>TA Tool</h1>
-    <hr></hr>
   </head>
-  <body>
-    <div class="allRequests">
-      <table class="table table-striped table-hover">
-        <thead class="thead-dark">
-          <tr class="">
-            <th>Name</th>
-            <th>Class</th>
-            <th>HW/Lab/General</th>
-            <th>Time Submitted</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @requests.each do |r| %>
-            <tr class="request">
-              <td class="requestname">
-                <%= r.name %>
-              </td>
-              <td class="requestclass">
-                <%= r.compsciclass %>
-              </td>
-              <td class="requestqtype">
-                <%= r.qtype %>
-              </td>
-              <td class="requesttime">
-                <% if user_signed_in? && current_user.tutor %>
-                  <%= link_to "Help Student", request_path(r), :class => "btn btn-primary"%> 
-                <% end %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+  
+  <body id="wrapper">
+      
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h1>TA Tool</h1>
+        </div>
+        
+        <div id="userActions">
+          <%= link_to "Create new request", new_request_path, :class => "btn btn-primary" %>
+          <%= link_to "Quick Questions", stacks_path, :class => "btn btn-primary" %>
+        </div> 
+        
+        <div id="auth">
+            <% if !user_signed_in? %>
+                <span>Sign In with Google:</span>
+                <div class="btn-primary" id="googleLogoBtn">
+                    <%= link_to image_tag("/images/googleLogo.png", :id => "googleLogo"), user_google_oauth2_omniauth_authorize_path, :method => :post %>
+                </div>
+            <% else %>
+                <!--User signed in-->
+                <%= "Hi, #{current_user.email}" %>
+                <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => "btn btn light" %>
+            <% end %>
+        </div>
+        <image id="colgateImg" src="/images/colgateLogo.png"></image>
+    </nav>  
+      
+    <div id="content">
+        
+        
+        <div id="allRequests">
+          <table class="table table-striped table-hover table-bordered panel">
+            <thead class="thead-dark">
+              <tr class="">
+                <th>Name</th>
+                <th>Class</th>
+                <th>HW/Lab/General</th>
+                <th>Time Submitted</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @requests.each do |r| %>
+                <tr class="request">
+                  <td class="requestname">
+                    <%= r.name %>
+                  </td>
+                  <td class="requestclass">
+                    <%= r.compsciclass %>
+                  </td>
+                  <td class="requestqtype">
+                    <%= r.qtype %>
+                  </td>
+                  <td class="requesttime">
+                    <% if user_signed_in? && current_user.tutor %>
+                      <%= link_to "Help Student", request_path(r), :class => "btn btn-primary"%> 
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
     </div>
-
- 
-    <div>
-      <%= link_to "Create new request", new_request_path, :class => "btn btn-primary" %>
-      <%= link_to "Quick Questions", stacks_path, :class => "btn btn-primary" %>
-    </div>  
+    
   </body>
