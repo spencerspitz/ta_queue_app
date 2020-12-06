@@ -29,8 +29,6 @@
     </nav>  
       
     <div id="content">
-        
-        
         <div id="allRequests">
           <table class="table table-striped table-hover table-bordered panel">
             <thead class="thead-dark">
@@ -48,6 +46,8 @@
                     <% if (user_signed_in?) && (current_user.tutor || r.email == current_user.email) %>
                        <%= link_to "#{r.name}", request_path(r)%> 
                     <% else %>
+                        <%= r.name %>
+                    <% end %>
                   </td>
                   <td class="requestclass">
                     <%= r.compsciclass %>
@@ -59,8 +59,6 @@
                      Time!
                   </td>
                 </tr>
-              
-
               <% end %>
             </tbody>
           </table>
