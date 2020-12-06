@@ -13,6 +13,13 @@ class RequestsController < ApplicationController
         @request = Request.new
     end
     
+    def destroy
+      @request = Request.find(params[:id])
+      @request.destroy
+      flash[:alert] = "request removed"
+      redirect_to requests_path
+    end
+    
     def create
         @request = Request.new(request_params)
         if @request.save

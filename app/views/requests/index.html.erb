@@ -45,7 +45,9 @@
               <% @requests.each do |r| %>
                 <tr class="request">
                   <td class="requestname">
-                    <%= r.name %>
+                    <% if (user_signed_in?) && (current_user.tutor || r.email == current_user.email) %>
+                       <%= link_to "#{r.name}", request_path(r)%> 
+                    <% else %>
                   </td>
                   <td class="requestclass">
                     <%= r.compsciclass %>
@@ -54,11 +56,11 @@
                     <%= r.qtype %>
                   </td>
                   <td class="requesttime">
-                    <% if user_signed_in? && current_user.tutor %>
-                      <%= link_to "Help Student", request_path(r), :class => "btn btn-primary"%> 
-                    <% end %>
+                     Time!
                   </td>
                 </tr>
+              
+
               <% end %>
             </tbody>
           </table>
