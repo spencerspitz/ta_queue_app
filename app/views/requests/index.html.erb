@@ -1,7 +1,10 @@
   <head>
   </head>
   <body>
-
+    <p>Welcome to Open Lab! Please sign-in and create a request to be helped. As you get closer to being helped, please click on your name to follow a link for a Zoom call with a TA. Thank you!</p>
+    <div class = "col-md-2">
+      <%= link_to "Quick Questions", stacks_path, :class => "btn btn-primary" %>
+    </div>
     <div class="allRequests">
       <table class="table table-striped table-hover">
         <thead class="thead-dark">
@@ -14,40 +17,40 @@
         </thead>
         <tbody>
           <% @requests.each do |r| %>
-            <tr class="request">
-              <td class="requestname">
-                <% if (user_signed_in?) && (current_user.tutor || r.email == current_user.email) %>
-                  <%= link_to "#{r.name}", request_path(r)%> 
-                <% else %>
-                  <%= r.name %>
-                <% end %>
-              </td>
-              <td class="requestclass">
-                <%= r.compsciclass %>
-              </td>
-              <td class="requestqtype">
-                <%= r.qtype %>
-              </td>
-              <td class="requesttime">
-                Time!
-              </td>
-            </tr>
+            <% if r.zoomurl.nil? %>
+              <tr class="request">
+            <% else %>
+              <tr class="request", style="background-color:#9effa3">
+            <% end %>
+                <td class="requestname">
+                  <% if (user_signed_in?) && (current_user.tutor || r.email == current_user.email) %>
+                    <%= link_to "#{r.name}", request_path(r)%> 
+                  <% else %>
+                    <%= r.name %>
+                  <% end %>
+                </td>
+                <td class="requestclass">
+                  <%= r.compsciclass %>
+                </td>
+                <td class="requestqtype">
+                  <%= r.qtype %>
+                </td>
+                <td class="requesttime">
+                  <%= r.time_submitted.strftime("%I:%M %p EST") %>
+                </td>
+              </tr>
           <% end %>
         </tbody>
       </table>
     </div>
 
- 
-  
+
     <div class="row">
-      <div class="col-md">
+      <div class="col-md-3">
         <%= link_to "Create new request", new_request_path, :class => "btn btn-primary" %>
       </div>
     </div>
     
     
-    <div>
-      <%= link_to "Quick Questions", stacks_path, :class => "btn btn-primary" %>
-    </div>
-    
+
   </body>

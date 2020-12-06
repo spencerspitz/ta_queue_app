@@ -13,8 +13,21 @@ class RequestsController < ApplicationController
         @request = Request.new
     end
     
+    def edit
+        id = params[:id]
+        @request = Request.find(id)
+    end 
+    
+    def update
+        @request = Request.find(params[:id])
+        @request.update(request_params)
+        flash[:notice] = "Request updated successfully."
+        redirect_to request_path(@request)
+    end
+    
     def create
         @request = Request.new(request_params)
+        @request.time_submitted = Time.now.utc + Time.zone_offset('EST')
         if @request.save
             flash[:notice] = "New request created"
             redirect_to requests_path and return
@@ -26,6 +39,6 @@ class RequestsController < ApplicationController
     
     private
         def request_params
-            params.require(:request).permit(:name, :email, :compsciclass, :qtype, :desc, :time_submitted)
+            params.require(:request).permit(:name, :email, :compsciclass, :qtype, :desc, :time_submitted, :zoomurl)
         end
 end

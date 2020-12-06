@@ -12,7 +12,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
           @new_user.save
           sign_in_and_redirect @new_user, event: :authentication
         else
-          flash[:warning] = "No user #{email} configured; contact the administrator"
+          flash[:warning] = "Please login with Colgate email."
           redirect_to new_user_session_path and return
         end
       end
