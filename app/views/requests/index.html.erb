@@ -52,7 +52,7 @@
                 <% if r.zoomurl.nil? %>
                   <tr class="request">
                 <% else %>
-                  <tr class="request">
+                  <tr class="request", style="background-color:#9effa3">
                 <% end %>
                   <td class="requestname">
                     <% if (user_signed_in?) && (current_user.tutor || r.email == current_user.email) %>

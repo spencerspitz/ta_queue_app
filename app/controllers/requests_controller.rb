@@ -25,6 +25,13 @@ class RequestsController < ApplicationController
         redirect_to request_path(@request)
     end
     
+    def destroy
+      @request = Request.find(params[:id])
+      @request.destroy
+      flash[:alert] = "request removed"
+      redirect_to requests_path
+    end
+    
     def create
         @request = Request.new(request_params)
         @request.time_submitted = Time.now.utc + Time.zone_offset('EST')
