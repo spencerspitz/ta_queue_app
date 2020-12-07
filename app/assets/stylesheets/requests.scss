@@ -1,9 +1,22 @@
-// Place all the styles related to the Requests controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
-
-// color scheme: #214252 #f05454 #af2d2d #ce6262
+// potential color scheme: #f8d49d #d35d6e #efb08c #5aa469
  
+* {
+    font-family: 'Josefin Sans', sans-serif;
+}
+ 
+#welcomeMsg {
+    text-align: center;
+    padding: 15px;
+    font-size: 24px;
+}
+
+.googleAction {
+    vertical-align: center;
+    text-align: center;
+    margin: 20px;
+    display: block;
+    font-size: 20px;
+}
 
 #googleLogo {
     width: 100%;
@@ -14,36 +27,40 @@
 #googleLogoBtn {
     width: 50px;
     heigth: 50px;
-    display: inline-block;
-    margin: 5px;
+    display: block;
+    margin: auto;
     border-radius: 50px;
 }
 
 #auth {
-    display: inline-block;
+    display: block;
     padding: 10px;
+    margin: 40px 0px;
+}
+
+#colgateImgWrapper {
+    width: 100%;
 }
 
 #colgateImg{
     height: 100px;
     width: 100px;
-    display: inline-block;
-    margin: 0 auto;
+    margin: auto;
     padding: 10px;
-    position: relative;
+    display: block;
 }
 
 h1 {
-    font-family: 'Josefin Sans', sans-serif;
     padding: 15px;
     margin: auto;
     text-align: center;
     padding: 10px 0px 20px;
 }
 
-.request {
-    font-family: 'Josefin Sans', sans-serif;
+#zoomLink {
+    width: 400px;
 }
+
 
 #wrapper {
     width: 100%;
@@ -56,11 +73,15 @@ h1 {
     display: inline-block;
     float: left;
     position: sticky;
+    background-color: #d35d6e;
+    border: solid 1px black;
 }
+
 
 .btn {
     margin: 5px 10px;
     padding: 5px;
+    background-color: #efb08c;
 }
 
 #content {
@@ -68,9 +89,31 @@ h1 {
     width: 80%;
     height: 100%;
     min-height: 100vh;
+    background-color: #f8d49d;
+    border: solid 1px black;
 }
 
-#allRequests {
+#showContent {
+    background-color: #f8d49d;
+}
+
+#showActions {
+    padding: 20px;
+    width: 100%;
+}
+
+#zoomActions {
+    display: inline-block;
+    float: right;
+}
+
+.zoomAction {
+    vertical-align: bottom;
+    margin: 0px;
+    float: right;
+}
+
+.table {
     margin: auto;
     width: 90%;
     padding: 20px;

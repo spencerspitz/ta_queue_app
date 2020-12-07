@@ -1,64 +1,67 @@
-  <div class="row">
-    <div class="col-md -1">
-      <h4 class="requestname">
-        <%= "Request details for #{@request.name}" %>
-      </h4>
-    </div>
-  </div>
-  <table class="table">
-    <thead class="thead-light">
-      <tr class="requests_header">
-        <th>Class</th>
-        <th>Type</th>
-        <th>Description</th>
-        <th>Email</th>
-        <th>Link for Zoom Meeting</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="request">
-        <td class="requestclass", style = "width:300px">
-          <%= @request.compsciclass %>
-        </td>
-        <td class="requestqtype", style = "width:300px">
-          <%= @request.qtype %>
-        </td>
-        <td class="requestdescription", style = "width:300px">
-          <%= @request.desc %>
-        </td>
-        <td class="requestemail", style = "width:300px">
-          <%= @request.email %>
-        </td>
-        <td class="productlink", style = "width:400px">
-          <% if @request.zoomurl.nil? %>
-            Please wait for help!
-          <% else %>  
-            <%= link_to "#{@request.zoomurl}", @request.zoomurl, :target => "_blank" %>
+  <body id="showContent">
+    
+    <h1>
+      <%= "Request details for #{@request.name}" %>
+    </h1>
+    
+    <table class="table table-striped table-hover table-bordered panel">
+      <thead class="thead-dark">
+        <tr>
+          <th>Class</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Email</th>
+          <th>Link for Zoom Meeting</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        <tr class="request">
+          <td class="reqtd">
+            <%= @request.compsciclass %>
+          </td>
+          <td class="reqtd">
+            <%= @request.qtype %>
+          </td>
+          <td class="reqtd">
+            <%= @request.desc %>
+          </td>
+          <td class="reqtd">
+            <%= @request.email %>
+          </td>
+          <td id="zoomLink">
+            <% if @request.zoomurl.nil? %>
+              Please wait for help!
+            <% else %>  
+              <%= link_to "#{@request.zoomurl}", @request.zoomurl, :target => "_blank" %>
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div id="showActions">
+      <div id="zoomActions">
+        <% if current_user.tutor? %> 
+          <%= form_with model: @request, :method => :patch, local: true do |r|%>
+            <div class="input-group mb-3 zoomAction">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Zoom meeting URL:</span>
+              </div>
+              <%= r.text_field :zoomurl, :class => "form-control" %>
+            </div>
+            <%= r.submit "Edit request", :class => "btn zoomAction" %>
           <% end %>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  
-  <% if current_user.tutor? %> 
-    <%= form_with model: @request, :method => :patch, local: true do |r|%>
-      <div class="row">
-        <div class="col-md-3">
-          <%= r.label "Zoom Meeting URL" %>
-        </div>
-        <div class="col-md-4">
-          <%= r.text_field :zoomurl %>
-        </div>
+        <% end %>
       </div>
-      <div class="row">
-        <div class="col-md-2">
-          <%= r.submit "Edit request" %>
-        </div>
+      
+      <div id="showRoutes">
+        <%= link_to("Back to request list", requests_path, :class => "btn") %>
+        <%= link_to "Delete request", request_path(@request), method: :delete, class: "btn"%>
       </div>
-    <% end %>
-  <% end %>
-  <br/>
-  <%= link_to("Back to request list", requests_path, :class => "btn btn-primary") %>
-  
-  <%= link_to "Delete request", request_path(@request), method: :delete, class: "btn btn-warning"%>
+    </div>
+    
 
+  </body>
+  
+  
