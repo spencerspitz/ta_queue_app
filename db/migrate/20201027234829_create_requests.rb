@@ -7,6 +7,7 @@ class CreateRequests < ActiveRecord::Migration[6.0]
       t.string :desc
       t.string :compsciclass
       t.string :qtype
+      t.string :zoomurl
 
       t.timestamps
     end

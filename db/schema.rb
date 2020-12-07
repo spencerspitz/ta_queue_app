@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2020_11_11_164252) do
     t.string "desc"
     t.string "compsciclass"
     t.string "qtype"
+    t.string "zoomurl"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

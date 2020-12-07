@@ -24,4 +24,5 @@ rlist << Request.create!(name: "Cole Bligh", email: "cbligh@colgate.edu", time_s
 
 User.create!(:email => "jfrosen@colgate.edu", :tutor => true)
 User.create!(:email => "amendelson@colgate.edu", :tutor => true, :admin => true)
+User.create!(:email => "smspitz@colgate.edu", :tutor => true)
 User.create!(:email => "jsommers@colgate.edu", :tutor => true, :admin => true)
