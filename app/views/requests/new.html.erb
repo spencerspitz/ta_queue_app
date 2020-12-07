@@ -1,6 +1,6 @@
  <body id="newContent">
     <h1>We're here to help!</h1>
-    <%= link_to "Back", requests_path, :class => "btn", :id => "backBtn" %>
+    <%= link_to "Back to Request List", requests_path, :class => "btn", :id => "backBtn" %>
     <%= form_with model: @request, local: true, :class => "form-group" do |r| %>
         <div class="input-group mb-3 newFormElement">
           <div class="input-group-prepend">
