@@ -1,56 +1,73 @@
   <head>
   </head>
-  <body>
-    <p>Welcome to Open Lab! Please sign-in and create a request to be helped. As you get closer to being helped, please click on your name to follow a link for a Zoom call with a TA. Thank you!</p>
-    <div class = "col-md-2">
-      <%= link_to "Quick Questions", stacks_path, :class => "btn btn-primary" %>
-    </div>
-    <div class="allRequests">
-      <table class="table table-striped table-hover">
-        <thead class="thead-dark">
-          <tr class="">
-            <th>Name</th>
-            <th>Class</th>
-            <th>HW/Lab/General</th>
-            <th>Time Submitted</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @requests.each do |r| %>
-            <% if r.zoomurl.nil? %>
-              <tr class="request">
+  
+  <body id="wrapper">
+      
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h1>TA Tool</h1>
+        </div>
+        
+        <div id="userActions">
+          <%= link_to "Create new request", new_request_path, :class => "btn btn-primary" %>
+          <%= link_to "Quick Questions", stacks_path, :class => "btn btn-primary" %>
+        </div> 
+        
+        <div id="auth">
+            <% if !user_signed_in? %>
+                <span>Sign In with Google:</span>
+                <div class="btn-primary" id="googleLogoBtn">
+                    <%= link_to image_tag("/images/googleLogo.png", :id => "googleLogo"), user_google_oauth2_omniauth_authorize_path, :method => :post %>
+                </div>
             <% else %>
-              <tr class="request", style="background-color:#9effa3">
+                <!--User signed in-->
+                <%= "Hi, #{current_user.email}" %>
+                <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => "btn btn light" %>
             <% end %>
-                <td class="requestname">
-                  <% if (user_signed_in?) && (current_user.tutor || r.email == current_user.email) %>
-                    <%= link_to "#{r.name}", request_path(r)%> 
-                  <% else %>
-                    <%= r.name %>
-                  <% end %>
-                </td>
-                <td class="requestclass">
-                  <%= r.compsciclass %>
-                </td>
-                <td class="requestqtype">
-                  <%= r.qtype %>
-                </td>
-                <td class="requesttime">
-                  <%= r.time_submitted.strftime("%I:%M %p EST") %>
-                </td>
+        </div>
+        <image id="colgateImg" src="/images/colgateLogo.png"></image>
+    </nav>  
+      
+    <div id="content">
+        <p>Welcome to Open Lab! Please sign-in and create a request to be helped. As you get closer to being helped, please click on your name to follow a link for a Zoom call with a TA. Thank you!</p>
+        <div id="allRequests">
+          <table class="table table-striped table-hover table-bordered panel">
+            <thead class="thead-dark">
+              <tr class="">
+                <th>Name</th>
+                <th>Class</th>
+                <th>HW/Lab/General</th>
+                <th>Time Submitted</th>
               </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-
-
-    <div class="row">
-      <div class="col-md-3">
-        <%= link_to "Create new request", new_request_path, :class => "btn btn-primary" %>
-      </div>
+            </thead>
+            <tbody>
+              <% @requests.each do |r| %>
+                <% if r.zoomurl.nil? %>
+                  <tr class="request">
+                <% else %>
+                  <tr class="request", style="background-color:#9effa3">
+                <% end %>
+                  <td class="requestname">
+                    <% if (user_signed_in?) && (current_user.tutor || r.email == current_user.email) %>
+                       <%= link_to "#{r.name}", request_path(r)%> 
+                    <% else %>
+                        <%= r.name %>
+                    <% end %>
+                  </td>
+                  <td class="requestclass">
+                    <%= r.compsciclass %>
+                  </td>
+                  <td class="requestqtype">
+                    <%= r.qtype %>
+                  </td>
+                  <td class="requesttime">
+                     <%= r.time_submitted.strftime("%I:%M %p EST") %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
     </div>
     
-    
-
   </body>

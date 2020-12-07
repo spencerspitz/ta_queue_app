@@ -13,6 +13,7 @@ class RequestsController < ApplicationController
         @request = Request.new
     end
     
+
     def edit
         id = params[:id]
         @request = Request.find(id)
@@ -23,6 +24,13 @@ class RequestsController < ApplicationController
         @request.update(request_params)
         flash[:notice] = "Request updated successfully."
         redirect_to request_path(@request)
+
+    def destroy
+      @request = Request.find(params[:id])
+      @request.destroy
+      flash[:alert] = "request removed"
+      redirect_to requests_path
+
     end
     
     def create

@@ -11,28 +11,6 @@
   </head>
 
   <body>
-    <h1 id="header">TA Tool</h1>
-    <hr></hr>
-    
-    <div id="flash">
-      <%- if flash[:notice] %>
-        <span class = "alert alert-success"><%= flash[:notice]%></span>
-      <%- elsif flash[:alert] %>
-        <span class = "alert alert alert-warning"><%= flash[:alert]%></span>
-      <%- end %>
-    </div>
-    
-    <% if user_signed_in? %>
-      <%= "Hi, #{current_user.email}" %>
-    <% end %>
-    
-    <% if !user_signed_in? %>
-      <div class="btn-primary" id="googleLogoBtn">
-        <%= link_to image_tag("/images/googleLogo.png", :id => "googleLogo"), user_google_oauth2_omniauth_authorize_path, :method => :post %>
-      </div>
-    <% else %>
-      <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => "btn btn light" %>
-    <% end %>
     <%= yield %>
   </body>
   
