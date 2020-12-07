@@ -9,8 +9,8 @@
         </div>
         
         <div id="userActions">
-          <%= link_to "Create new request", new_request_path, :class => "btn btn-primary" %>
-          <%= link_to "Quick Questions", stacks_path, :class => "btn btn-primary" %>
+          <%= link_to "Create new request", new_request_path, :class => "btn" %>
+          <%= link_to "Quick Questions", stacks_path, :class => "btn" %>
         </div> 
         
         <div id="auth">
@@ -21,15 +21,18 @@
                 </div>
             <% else %>
                 <!--User signed in-->
-                <%= "Hi, #{current_user.email}" %>
-                <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => "btn btn light" %>
+                <span>
+                    <%= "Hi, #{current_user.email}" %>
+                    <%= link_to "Sign Out", destroy_user_session_path, :method => :delete, :class => "btn light" %>
+                </span>
             <% end %>
         </div>
         <image id="colgateImg" src="/images/colgateLogo.png"></image>
     </nav>  
       
     <div id="content">
-        <p>Welcome to Open Lab! Please sign-in and create a request to be helped. As you get closer to being helped, please click on your name to follow a link for a Zoom call with a TA. Thank you!</p>
+        <p id="welcomeMsg">Welcome to Open Lab! Please sign-in and create a request to be helped. 
+        As you get closer to being helped, please click on your name to follow a link for a Zoom call with a TA. Thank you!</p>
         <div id="allRequests">
           <table class="table table-striped table-hover table-bordered panel">
             <thead class="thead-dark">

@@ -17,19 +17,19 @@
     </thead>
     <tbody>
       <tr class="request">
-        <td class="requestclass", style = "width:300px">
+        <td class="reqtd">
           <%= @request.compsciclass %>
         </td>
-        <td class="requestqtype", style = "width:300px">
+        <td class="reqtd">
           <%= @request.qtype %>
         </td>
-        <td class="requestdescription", style = "width:300px">
+        <td class="reqtd">
           <%= @request.desc %>
         </td>
-        <td class="requestemail", style = "width:300px">
+        <td class="reqtd">
           <%= @request.email %>
         </td>
-        <td class="productlink", style = "width:400px">
+        <td id="productLink">
           <% if @request.zoomurl.nil? %>
             Please wait for help!
           <% else %>  
@@ -58,7 +58,7 @@
     <% end %>
   <% end %>
   <br/>
-  <%= link_to("Back to request list", requests_path, :class => "btn btn-primary") %>
+  <%= link_to("Back to request list", requests_path, :class => "btn") %>
   
-  <%= link_to "Delete request", request_path(@request), method: :delete, class: "btn btn-warning"%>
+  <%= link_to "Delete request", request_path(@request), method: :delete, class: "btn"%>
 
