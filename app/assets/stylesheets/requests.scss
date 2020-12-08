@@ -57,6 +57,17 @@ h1 {
     padding: 10px 0px 20px;
 }
 
+.table {
+    margin: auto;
+    width: 90%;
+    padding: 20px;
+}
+
+#backBtn {
+    margin: 0px 0px 60px 30px;
+    padding: 6px 18px;
+}
+
 #zoomLink {
     width: 400px;
 }
@@ -79,7 +90,7 @@ h1 {
 
 
 .btn {
-    margin: 5px 10px;
+    margin: 5px 30px;
     padding: 5px;
     background-color: #efb08c;
 }
@@ -126,15 +137,14 @@ h1 {
     margin: 0px;
 }
 
-#backBtn {
-    margin: 0px 0px 60px 30px;
-    padding: 6px 18px;
+#newStackContent {
+    background-color: #f8d49d;
 }
 
-.table {
-    margin: auto;
-    width: 90%;
+#stackIndexRoutes {
     padding: 20px;
+    margin-top: 20px;
 }
+
 
 
