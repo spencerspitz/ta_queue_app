@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_11_164252) do
+ActiveRecord::Schema.define(version: 2020_12_08_204119) do
 
   create_table "requests", force: :cascade do |t|
     t.string "name"
@@ -22,6 +22,17 @@ ActiveRecord::Schema.define(version: 2020_11_11_164252) do
     t.string "zoomurl"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "responses", force: :cascade do |t|
+    t.string "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "responses_stacks", id: false, force: :cascade do |t|
+    t.integer "stack_id", null: false
+    t.integer "response_id", null: false
   end
 
   create_table "stacks", force: :cascade do |t|

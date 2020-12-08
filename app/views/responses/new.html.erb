@@ -1,0 +1,15 @@
+<head>
+    <h1>Response to a Question</h1>
+</head>
+
+<body>
+    <div>
+        <%= form_with model: @response, local: true, :class => "form-group" do |r| %>
+            <span>Response:</span>
+            <%= r.text_field :comment %>
+            
+            <%= r.submit "Submit Response", :class => "btn", :id => "createBtn" %>
+        <% end %>
+    </div>
+    <%= link_to "Return to the Question", stacks_path(@stack) %>
+</body>
