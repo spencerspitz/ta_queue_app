@@ -1,9 +1,13 @@
-  <body id="showContent">
-    
+  <head>
     <h1>
       <%= "Request details for #{@request.name}" %>
     </h1>
     <%= link_to "Back to Request List", requests_path, :class => "btn", :id => "backBtn" %>
+  </head>
+  
+  <body id="showContent">
+    
+    
     
     <table class="table table-striped table-hover table-bordered panel">
       <thead class="thead-dark">
