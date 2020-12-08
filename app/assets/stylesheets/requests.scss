@@ -145,7 +145,43 @@ h1 {
     padding: 20px;
 }
 
-
 #newStackContent {
     background-color: #f8d49d;
+}
+
+#showStackContent {
+    background-color: #f8d49d;
+}
+
+#stackLabels {
+    margin: 0px 35px;
+}
+
+#topic {
+    display: inline-block;
+    font-size: 24px;
+}
+
+#class {
+    dispaly: inline-block;
+    font-style: italic;
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+#user {
+    font-size: 46px;
+    font-weight: bold;
+}
+
+hr {
+    height: 10px;
+	border: 0;
+	box-shadow: 0 10px 10px -10px #8c8b8b inset;
+	margin: 0px;
+}
+
+#comment {
+    margin-top: 40px;
+    font-size: 30px;
 }
