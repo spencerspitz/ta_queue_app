@@ -16,6 +16,21 @@
             
         </div>
     </div>
-    <%= link_to "Respond to Question", stacks_path, :class => "btn"%>
-    <!--Have to put a path here-->
+    
+    <div>
+        <table>
+            <thead>
+                <th>Responses</th>
+            </thead>
+            <tbody>
+                <% @stack.responses.each do |r| %>
+                    <tr>
+                        <td><%= r.comment %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+    <%= link_to "Add a Response to the Question", new_response_path, :class => "btn"%>
+    <%= link_to "Back to All Questions", stacks_path, :class => "btn"%> 
 </body>
