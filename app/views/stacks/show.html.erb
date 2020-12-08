@@ -1,23 +1,21 @@
 <head>
-    <h1>Quick Questions</h1>
+    <h1>Question Details</h1>
+    <%= link_to "Back to Quick Questions List", stacks_path, :class => "btn", :id => "backBtn" %>
 </head>
 
-<div>
-    <h3>
-        <%= "Topic: #{@stack.topic}" %>
-    </h3>
-    <h4>
-        <%= "Question from #{@stack.user} for #{@stack.coscclass}" %>
-    </h4>
-</div>
-<div>
-    <p>Question:</p>
-    <p>
-        <%= "#{@stack.comment}" %>
-    </p>
-</div>
-
-<div>
-    <h5>Add Comment:</h5>
-    <!--Add a form to add to the comment of the @stack variable-->
-</div>
+<body id="showStackContent">
+    <div>
+        <div id="stackLabels">
+            <div>
+                <span id="user"><%= "#{@stack.user}" %></span>
+                <hr/>
+                <span id="topic"><%= "#{@stack.topic}" %></span>
+                <span id="class"><%= "#{@stack.coscclass}" %></span>
+            </div>
+            <p id="comment"><%= "#{@stack.comment}" %></p>
+            
+        </div>
+    </div>
+    <%= link_to "Respond to Question", stacks_path, :class => "btn"%>
+    <!--Have to put a path here-->
+</body>
