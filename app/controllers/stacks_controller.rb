@@ -7,8 +7,6 @@ class StacksController < ApplicationController
     
     def new
         #create a new stack object
-        #GET ERROR WHEN LINT IS UNCOMMENTED
-        #undefined method `finder_needs_type_condition?' for nil:NilClass
         @stack = Stack.new
     end
     

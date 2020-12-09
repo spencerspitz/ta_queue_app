@@ -5,8 +5,9 @@ class ResponsesController < ApplicationController
     
     def create
         #creates a new response variable, gives a flash notice if it was successfully posted or now
+        #assign @stack to the stack object being associated
         @response = Response.new(response_params)
-        #missing a line to associate the response to the stack
+        @stack.responses << @response
         if @response.save
             flash[:notice] = "New Response has been posted"
             redirect_to stack_path(@stack) and return
