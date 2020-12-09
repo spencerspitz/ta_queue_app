@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 2020_12_08_204119) do
   create_table "responses_stacks", id: false, force: :cascade do |t|
     t.integer "stack_id", null: false
     t.integer "response_id", null: false
+    t.index ["response_id", "stack_id"], name: "index_responses_stacks_on_response_id_and_stack_id"
+    t.index ["stack_id", "response_id"], name: "index_responses_stacks_on_stack_id_and_response_id"
   end
 
   create_table "stacks", force: :cascade do |t|

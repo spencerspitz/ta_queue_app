@@ -9,8 +9,10 @@
         </div>
         
         <div id="userActions">
-          <%= link_to "Create New Request", new_request_path, :class => "btn" %>
-          <%= link_to "Quick Questions", stacks_path, :class => "btn" %>
+          <% if user_signed_in? %>
+            <%= link_to "Create New Request", new_request_path, :class => "btn" %>
+            <%= link_to "Quick Questions", stacks_path, :class => "btn" %>
+          <% end %>
         </div> 
         
         <div id="auth">

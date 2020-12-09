@@ -6,8 +6,8 @@ RSpec.describe "Requests", type: :request do
         expect(response).to have_http_status(:ok)
     end
     
-    it "should correctly route for the show view" do
-        Request.create!(name: "Jared", email: "jrose@colgate.edu", desc: "Test! Wow.")
+    it "should correctly route to the show view" do
+        Request.create!(name: "Jared", email: "jrosen@colgate.edu", desc: "Test! Wow.")
         get request_path("1")
         expect(response).to have_http_status(:ok)
     end
@@ -43,6 +43,9 @@ RSpec.describe "Requests", type: :request do
            expect(tr.name).to eq("Aaron")
            
         end
+    end
+    
+    describe "" do
     end
 
 

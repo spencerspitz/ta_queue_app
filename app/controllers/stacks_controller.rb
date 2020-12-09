@@ -10,6 +10,7 @@ class StacksController < ApplicationController
         #GET ERROR WHEN LINT IS UNCOMMENTED
         #undefined method `finder_needs_type_condition?' for nil:NilClass
         @stack = Stack.new
+        @stack.responses = []
     end
     
     def create
