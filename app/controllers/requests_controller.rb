@@ -28,7 +28,7 @@ class RequestsController < ApplicationController
     def destroy
       @request = Request.find(params[:id])
       @request.destroy
-      flash[:alert] = "request removed"
+      flash[:alert] = "Request has been removed"
       redirect_to requests_path
     end
     
