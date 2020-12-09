@@ -6,9 +6,9 @@ class ResponsesController < ApplicationController
     def create
         #creates a new response variable, gives a flash notice if it was successfully posted or now
         @response = Response.new(response_params)
+        #missing a line to associate the response to the stack
         if @response.save
             flash[:notice] = "New Response has been posted"
-            @stack << @response
             redirect_to stack_path(@stack) and return
         else
             flash[:alert] = "Failed to post new question"
@@ -18,6 +18,6 @@ class ResponsesController < ApplicationController
     
     private
     def response_params
-        params.require(:response).permit(:comment)
+        params.require(:response).permit(:comment, :stack)
     end
 end
