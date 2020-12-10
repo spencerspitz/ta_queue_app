@@ -18,9 +18,13 @@ rlist << Request.create!(name: "Gabe Loud", email: "gloud@colgate.edu", time_sub
 rlist << Request.create!(name: "Cole Bligh", email: "cbligh@colgate.edu", time_submitted: Time.now, desc: "What is a model?", compsciclass: "COSC102", qtype: "Lab")
 
 #
-#slist = []
+slist = []
 #
-#slist << Stack.create!(user: "Cole", topic: "Recursion", coscclass: "102", comment: "Help!!!!!")
+slist << Stack.create!(user: "Cole", topic: "Recursion", coscclass: "102", comment: "Help!!!!!")
+
+r1 = Response.new(comment: "Hey Cole! This now works!")
+r1.stack = slist[0]
+r1.save
 
 User.create!(:email => "jfrosen@colgate.edu", :tutor => true)
 User.create!(:email => "amendelson@colgate.edu", :tutor => true, :admin => true)

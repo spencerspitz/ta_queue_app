@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_08_204119) do
+ActiveRecord::Schema.define(version: 2020_12_09_233356) do
 
   create_table "requests", force: :cascade do |t|
     t.string "name"
@@ -25,16 +25,9 @@ ActiveRecord::Schema.define(version: 2020_12_08_204119) do
   end
 
   create_table "responses", force: :cascade do |t|
-    t.string "comment"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "responses_stacks", id: false, force: :cascade do |t|
+    t.text "comment"
     t.integer "stack_id", null: false
-    t.integer "response_id", null: false
-    t.index ["response_id", "stack_id"], name: "index_responses_stacks_on_response_id_and_stack_id"
-    t.index ["stack_id", "response_id"], name: "index_responses_stacks_on_stack_id_and_response_id"
+    t.index ["stack_id"], name: "index_responses_on_stack_id"
   end
 
   create_table "stacks", force: :cascade do |t|
@@ -57,4 +50,5 @@ ActiveRecord::Schema.define(version: 2020_12_08_204119) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "responses", "stacks"
 end

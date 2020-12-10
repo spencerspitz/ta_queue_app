@@ -4,7 +4,7 @@
 
 <body>
     <div>
-        <%= form_with model: @response, local: true, :class => "form-group" do |r| %>
+        <%= form_with model: [@stack,@response], method: :post, local: true do |r| %>
             <span>Response:</span>
             <%= r.text_field :comment %>
             
