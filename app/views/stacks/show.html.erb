@@ -1,36 +1,35 @@
 <head>
     <h1>Question Details</h1>
-    <%= link_to "Back to Quick Questions List", stacks_path, :class => "btn", :id => "backBtn" %>
+    <div id="showStackBtns">
+        <%= link_to "Back to All Questions", stacks_path, :class => "btn", :id => "backBtn" %>
+        <%= link_to "Add a Response to the Question", new_stack_response_path(@stack), :class => "btn", :id => "respondBtn"%>
+    </div>
 </head>
 
 <body id="showStackContent">
     <div>
-        <div id="stackLabels">
-            <div>
-                <span id="user"><%= "#{@stack.user}" %></span>
-                <hr/>
-                <span id="topic"><%= "#{@stack.topic}" %></span>
-                <span id="class"><%= "#{@stack.coscclass}" %></span>
-            </div>
-            <p id="comment"><%= "#{@stack.comment}" %></p>
+        <div id="stackDesc">
+            <div id="stackLabels">
+                <div>
+                    <span id="user"><%= "#{@stack.user}" %></span>
+                    <hr/>
+                    <span id="topic"><%= "#{@stack.topic}" %></span>
+                    <span id="class"><%= "#{@stack.coscclass}" %></span>
+                </div>
+                <p id="comment"><%= "#{@stack.comment}" %></p>
             
+            </div>
+        </div>
+    
+        <div id="questionResponses">
+            <span id="responseHeader">Responses</span>
+            <hr/>
+                <% @stack.responses.each do |r| %>
+                    <span id="response">- <%= r.comment %></span>
+                <% end %>
         </div>
     </div>
     
-    <div>
-        <table>
-            <thead>
-                <th>Responses</th>
-            </thead>
-            <tbody>
-                <% @stack.responses.each do |r| %>
-                    <tr>
-                        <td><%= r.comment %></td>
-                    </tr>
-                <% end %>
-            </tbody>
-        </table>
-    </div>
-    <%= link_to "Add a Response to the Question", new_stack_response_path(@stack), :class => "btn"%>
-    <%= link_to "Back to All Questions", stacks_path, :class => "btn"%> 
+    
+    
 </body>
