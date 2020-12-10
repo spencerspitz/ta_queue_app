@@ -4,4 +4,5 @@ class Stack < ApplicationRecord
     validates :coscclass, presence: true
     validates :comment, presence: true
     has_many :responses
+    
 end
