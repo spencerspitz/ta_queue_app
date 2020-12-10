@@ -184,6 +184,7 @@ h1 {
     display: block;
     margin: 14px 0px;
     font-family: 'Lato', sans-serif;
+    overflow-wrap: break-word;
 }
 
 #topic {
@@ -213,5 +214,9 @@ hr {
 #comment {
     margin-top: 40px;
     font-size: 30px;
+    overflow-wrap: break-word;
 }
 
+#newResponseContent {
+    background-color: #f8d49d;
+}

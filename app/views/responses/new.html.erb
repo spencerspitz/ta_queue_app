@@ -1,15 +1,21 @@
 <head>
     <h1>Response to a Question</h1>
+    <%= link_to "Back", stacks_path(@stack), :class => "btn", :id => "backBtn" %>
 </head>
 
-<body>
+<body id="newResponseContent">
     <div>
-        <%= form_with model: [@stack,@response], method: :post, local: true do |r| %>
-            <span>Response:</span>
-            <%= r.text_field :comment %>
+        <%= form_with model: [@stack,@response], method: :post, local: true, :class => "form-group" do |r| %>
+            <div class="input-group mb-3 newFormElement">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Response:</span>
+                </div>
+                <%= r.text_area :comment, required: true, placeholder: "", :class => "form-control" %>
+            </div>
             
-            <%= r.submit "Submit Response", :class => "btn", :id => "createBtn" %>
+            <div class="newFormElement">
+                <%= r.submit "Submit Response", :class => "btn", :id => "createBtn" %>
+            </div>
         <% end %>
     </div>
-    <%= link_to "Return to the Question", stacks_path(@stack) %>
 </body>
