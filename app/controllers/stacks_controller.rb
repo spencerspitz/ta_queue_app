@@ -32,6 +32,13 @@ class StacksController < ApplicationController
         @stack = Stack.find(id)
     end
     
+    def destroy
+      @stack = Stack.find(params[:id])
+      @stack.destroy
+      flash[:alert] = "stack removed"
+      redirect_to stacks_path
+    end
+    
     private
     def stack_params
         #params that are required when asking a question

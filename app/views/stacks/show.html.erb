@@ -3,6 +3,9 @@
     <div id="showStackBtns">
         <%= link_to "Back to All Questions", stacks_path, :class => "btn", :id => "backBtn" %>
         <%= link_to "Add a Response to the Question", new_stack_response_path(@stack), :class => "btn", :id => "respondBtn"%>
+        <% if current_user.tutor? || current_user.admin? %>
+            <%= link_to "Delete Question", stack_path(@stack), method: :delete, class: "btn", id: "deleteStackBtn" %>
+        <% end %>
     </div>
 </head>
 
